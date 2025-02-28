@@ -10,17 +10,17 @@ const { width, height } = Dimensions.get("window");
 const slides = [
   {
     id: "1",
-    image: require("../assets/images/map.png"),
+    image: require("../assets/images/1.gif"),
     text: "Find Your Way with Real-Time\nRoutes and Traffic Insights",
   },
   {
     id: "2",
-    image: require("../assets/images/path.png"),
+    image: require("../assets/images/2.gif"),
     text: "Get Step-by-Step Directions\nfor Your Journey",
   },
   {
     id: "3",
-    image: require("../assets/images/empty.png"),
+    image: require("../assets/images/3.gif"),
     text: "Stay Safe with Live Traffic Updates\nand Best Route Suggestions",
   },
 ];
@@ -49,7 +49,7 @@ export default function OnboardingScreen() {
         scrollAnimationDuration={800}
         onProgressChange={(_, absoluteProgress) => setCurrentIndex(Math.round(absoluteProgress))}
         renderItem={({ item }) => (
-          <View style={{ width, alignItems: 'center', justifyContent: 'center' }}>
+          <View style={{ width, alignItems: 'center', justifyContent: 'flex-start' }}>
             <Animated.View
               style={{
                 transform: [
@@ -69,19 +69,18 @@ export default function OnboardingScreen() {
               }}
             >
               <Image
-                source={item.image}  // Use Image component if FastImage is not working
-                style={{ width: width * 0.5, height: height * 0.5, marginBottom: 20 }}
+                source={item.image}
+                style={{ width: width * 0.6, height: height * 0.4, marginBottom: 10 }}
                 resizeMode="contain"
               />
             </Animated.View>
-            <Text style={{ color: '030F0F', fontSize: 18, fontWeight: '600', textAlign: 'center' }}>
+            <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', textAlign: 'center', fontFamily: 'Arial', marginTop: -70 }}>
               {item.text}
             </Text>
           </View>
         )}
       />
 
-      {/* Pagination Dots */}
       <View style={{ flexDirection: 'row', space: 10, marginTop: 20 }}>
         {slides.map((_, index) => (
           <View
@@ -97,11 +96,10 @@ export default function OnboardingScreen() {
         ))}
       </View>
 
-      {/* Bottom Section - Always Visible */}
       <View style={{ width: '100%', alignItems: 'center' }}>
         <Link href="/auth/homescreen" asChild>
-          <TouchableOpacity style={{ width: '100%', backgroundColor: '#00DF82', paddingVertical: 15, borderRadius: 30, marginTop: 20 }}>
-            <Text style={{ textAlign: 'center', color: '#030F0F',fontWeight: '600', fontSize: 18 }}>Get Started</Text>
+          <TouchableOpacity style={{ width: '100%', backgroundColor: '#00DF82', paddingVertical: 15, borderRadius: 30, marginTop: 30 }}>
+            <Text style={{ textAlign: 'center', color: '#030F0F', fontWeight: '600', fontSize: 18 }}>Get Started</Text>
           </TouchableOpacity>
         </Link>
 
@@ -112,7 +110,7 @@ export default function OnboardingScreen() {
         </Link>
 
         <Text style={{ color: 'white', fontSize: 12, textAlign: 'center', marginTop: 15 }}>
-          By continuing you agree to <Text style={{ color: '#007AFF' }}>Terms of Service</Text> and <Text style={{ color: '#007AFF' }}>Privacy Policy</Text>
+          By continuing you agree to <Text style={{ color: '#6ac66b' }}>Terms of Service</Text> and <Text style={{ color: '#6ac66b' }}>Privacy Policy</Text>
         </Text>
       </View>
 
